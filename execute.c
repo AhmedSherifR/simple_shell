@@ -16,8 +16,9 @@ if (pid == 0)
 if (execve(command, argv, environ) == -1)
 {
 perror("Error:");
-}
 exit(EXIT_FAILURE);
+}
+
 }
 else if (pid < 0)
 {
