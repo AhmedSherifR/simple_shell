@@ -18,6 +18,11 @@ ssize_t n_read = 0;
 		printf("exiting...\n");
 		return (-1);
 	}
+	if (strcmp(line, "env") == 0)
+	{
+	env();
+	continue;
+	}
 	argv = tokenizing(line);
 	execute(argv);
 	free(argv);
