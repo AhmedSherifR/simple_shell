@@ -13,8 +13,13 @@ ssize_t n_read = 0;
 	{
 	prompt();
 	n_read = getline(&line, &nc, stdin);
+	if (n_read == 0)
+	{
+		continue;
+	}
 	if (n_read == -1)
 	{
+		_putchar('\n');
 		return (-1);
 	}
 	if (strcmp(line, "env") == 0)
