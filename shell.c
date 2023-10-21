@@ -19,7 +19,6 @@ ssize_t n_read = 0;
 	}
 	if (n_read == -1)
 	{
-		_putchar('\n');
 		return (-1);
 	}
 	if (strcmp(line, "env") == 0)
