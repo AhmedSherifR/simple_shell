@@ -15,7 +15,7 @@ char*command = path_handle(argv[0]);
     
     perror("Error");
   } else {
-	wait(&status);
+	waitpid(pid, &status, 0);;
   }
 
   return 1;
