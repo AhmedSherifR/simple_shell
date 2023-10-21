@@ -1,22 +1,31 @@
 #include "shell.h"
+/**
+ * execute - execute commands
+ * @argv: arguments will be executed
+ * Return: 0 in success
+ */
 int execute(char **argv)
 {
 pid_t pid;
 int status;
-char*command = path_handle(argv[0]);	
-  pid = fork();
-  if (pid == 0) {
-    
-    if (execve(command, argv, environ) == -1) {
-      perror("Error:");
-    }
-    exit(EXIT_FAILURE);
-  } else if (pid < 0) {
-    
-    perror("Error");
-  } else {
-	waitpid(pid, &status, 0);;
-  }
+char *command = path_handle(argv[0]);
 
-  return (0);
+pid = fork();
+if (pid == 0)
+{
+if (execve(command, argv, environ) == -1)
+{
+perror("Error:");
+}
+exit(EXIT_FAILURE);
+}
+else if (pid < 0)
+{
+perror("Error");
+}
+else
+{
+waitpid(pid, &status, 0);
+}
+return (0);
 }

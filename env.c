@@ -1,4 +1,9 @@
 #include "shell.h"
+/**
+ * env - print eniron
+ * Return: Void
+ */
+
 
 void env(void)
 {

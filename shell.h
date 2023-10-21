@@ -16,7 +16,7 @@ extern char **environ;
 
 void prompt(void);
 int _putchar(char c);
-char** tokenizing(char *line);
+char **tokenizing(char *line);
 int execute(char **argv);
 char *path_handle(char *command);
 void env(void);
