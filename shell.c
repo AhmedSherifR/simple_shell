@@ -11,9 +11,9 @@ ssize_t n_read = 0;
 
 	while(mode)
 	{
-	prompt();
+	/*prompt();*/
 	n_read = getline(&line, &nc, stdin);
-	if (n_read == 0)
+	if (line[0] == '\n')
 	{
 		continue;
 	}
