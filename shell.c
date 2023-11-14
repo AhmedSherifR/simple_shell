@@ -5,6 +5,7 @@
  *@argv: arguments that benn entered
  *Return: 0 in sucess
  */
+
 int main(int ac, char **argv)
 {
 int mode = 1;
@@ -23,17 +24,24 @@ ssize_t n_read = 0;
 	}
 	if (n_read == -1)
 	{
-		return (-1);
+		return (0);
 	}
 	if (strcmp(line, "env") == 0)
 	{
 	env();
+	free(line);
+	line = NULL;
 	continue;
 	}
+
+	if (strcmp(line, "exit\n") == 0)
+	break;
+
 	argv = tokenizing(line);
 	execute(argv);
+	line = NULL;
 	free(argv);
 	}
 free(line);
-return (0);
+exit(EXIT_SUCCESS);
 }

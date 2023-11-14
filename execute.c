@@ -11,22 +11,20 @@ int status;
 char *command = path_handle(argv[0]);
 
 pid = fork();
-if (pid == 0)
+if (pid == -1)
 {
-if (execve(command, argv, environ) == -1)
-{
-perror("Error:");
+perror("fork");
 exit(EXIT_FAILURE);
 }
-
-}
-else if (pid < 0)
+if (pid == 0)
 {
-perror("Error");
+execve(command, argv, environ);
+perror("execve");
+exit(EXIT_FAILURE);
 }
 else
 {
-waitpid(pid, &status, 0);
+wait(&status);
 }
-return (0);
+return (EXIT_SUCCESS);
 }
