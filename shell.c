@@ -5,26 +5,29 @@
  *@argv: arguments that benn entered
  *Return: 0 in sucess
  */
-
 int main(int ac, char **argv, char **env)
 {
 int mode = 1;
-char *line = NULL;
 size_t nc = 0;
-ssize_t n_read = 0;
+char *line = NULL;
+ssize_t n_read;
 
 (void)ac;
 
 	while (mode)
 	{
 	n_read = getline(&line, &nc, stdin);
+	if (!line)
+	{
+		continue;
+	}
 	if (line[0] == '\n')
 	{
 		continue;
 	}
-	if (n_read == -1)
+	if (n_read < 0)
 	{
-		return (0);
+		break;
 	}
 	if (strcmp(line, "env\n") == 0)
 	{
@@ -39,6 +42,7 @@ ssize_t n_read = 0;
 
 	argv = tokenizing(line);
 	execute(argv);
+	free(line);
 	line = NULL;
 	free(argv);
 	}

@@ -10,7 +10,8 @@ int len = 0;
 int cap = 16;
 char **tokens = malloc(cap * sizeof(char *));
 char *delimiters = " \t\r\n";
-char *token = strtok(line, delimiters);
+char *linec = line;
+char *token = strtok(linec, delimiters);
 
 while (token != NULL)
 {
