@@ -6,7 +6,7 @@
  *Return: 0 in sucess
  */
 
-int main(int ac, char **argv)
+int main(int ac, char **argv, char **env)
 {
 int mode = 1;
 char *line = NULL;
@@ -26,9 +26,9 @@ ssize_t n_read = 0;
 	{
 		return (0);
 	}
-	if (strcmp(line, "env") == 0)
+	if (strcmp(line, "env\n") == 0)
 	{
-	env();
+	envlist(env);
 	free(line);
 	line = NULL;
 	continue;

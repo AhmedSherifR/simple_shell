@@ -1,16 +1,16 @@
 #include "shell.h"
 /**
- * env - print eniron
+ * envlist - print eniron
  * Return: Void
  */
 
 
-void env(void)
+void envlist(char **env)
 {
-char **env = environ;
+char **enl = env;
 
-for (; *env; ++env)
+for (; *enl; ++enl)
 {
-printf("%s\n", *env);
+printf("%s\n", *enl);
 }
 }
