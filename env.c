@@ -8,9 +8,11 @@
 void envlist(char **env)
 {
 char **enl = env;
+int i = 0;
 
-for (; *enl; ++enl)
+while (enl[i] != NULL) 
 {
-printf("%s\n", *enl);
+printf("%s\n", enl[i]);
+i++;
 }
 }
