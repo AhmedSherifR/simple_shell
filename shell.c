@@ -3,6 +3,7 @@
  *main - execute the input
  *@ac: empty argv number
  *@argv: arguments that benn entered
+ *@env: environment vriable list
  *Return: 0 in sucess
  */
 int main(int ac, char **argv, char **env)
@@ -10,7 +11,7 @@ int main(int ac, char **argv, char **env)
 int mode = 1;
 size_t nc = 0;
 char *line = NULL;
-ssize_t n_read;
+ssize_t n_read = 0;
 
 (void)ac;
 
