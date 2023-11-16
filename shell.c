@@ -22,10 +22,6 @@ ssize_t n_read = 0;
 	{
 		continue;
 	}
-	if (line[0] == '\n')
-	{
-		continue;
-	}
 	if (n_read < 0)
 	{
 		break;
