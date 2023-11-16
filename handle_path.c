@@ -2,7 +2,7 @@
 /**
  * path_handle - return path of command
  * @command: command to get the path of
- * Return: file_path if success
+ * Return: file_path if success(argv[0] or new one)
  */
 char *path_handle(char *command)
 {
