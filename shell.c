@@ -35,7 +35,10 @@ ssize_t n_read = 0;
 	break;
 
 	argv = tokenizing(line);
+	if (argv[0])
+	{
 	execute(argv);
+	}
 	free(line);
 	line = NULL;
 	free(argv);
