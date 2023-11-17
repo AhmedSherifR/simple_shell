@@ -19,13 +19,11 @@ ssize_t n_read = 0;
 	{
 	n_read = getline(&line, &nc, stdin);
 	if (!line)
-	{
-		continue;
-	}
+	continue;
+
 	if (n_read < 0)
-	{
-		break;
-	}
+	break;
+
 	if (strcmp(line, "env\n") == 0)
 	{
 	envlist(env);
@@ -33,7 +31,6 @@ ssize_t n_read = 0;
 	line = NULL;
 	continue;
 	}
-
 	if (strcmp(line, "exit\n") == 0)
 	break;
 
